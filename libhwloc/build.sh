@@ -11,6 +11,6 @@ else
     ./configure --prefix=$PREFIX $DISABLES
 fi
 
-make
+make -j4
 #make check
 make install

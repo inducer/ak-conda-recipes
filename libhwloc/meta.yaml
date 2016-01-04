@@ -10,6 +10,7 @@ source:
 about:
   home: https://www.open-mpi.org/projects/hwloc/
   license: BSD
+  summary: Portable Hardware Locality (hwloc)
 
 # test:
 #   files:
