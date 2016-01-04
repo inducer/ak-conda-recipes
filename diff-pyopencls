@@ -1,0 +1,3 @@
+#! /bin/bash
+
+colordiff -urN --exclude="*~" pyopencl pyopencl-pocl

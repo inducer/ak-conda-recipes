@@ -11,6 +11,6 @@ else
     ./configure --prefix=$PREFIX $FLAGS
 fi
 
-make
+make -j4
 #make check
 make install

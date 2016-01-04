@@ -7,7 +7,6 @@ source:
   url: http://portablecl.org/downloads/pocl-0.12.tar.gz
   sha1: 700926899c285511313007e198a89aed7dab6386
 
-
 requirements:
   build:
     - pkgconfig
@@ -21,6 +20,7 @@ requirements:
 about:
   home: https://www.open-mpi.org/projects/hwloc/
   license: MIT
+  summary: POCL portable OpenCL implementation
 
 # test:
 #   files:
