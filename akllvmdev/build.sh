@@ -1,33 +1,20 @@
 mkdir build
 cd build
-if [ -z "$MACOSX_DEPLOYMENT_TARGET" ]; then
-    # Linux
-    ../configure \
-        --enable-pic \
-        --enable-optimized \
-        --disable-docs \
-        --enable-targets=host \
-        --disable-terminfo \
-        --disable-libedit \
-        --prefix=$PREFIX \
-        --with-python=$SYS_PYTHON
 
-else
-    # OSX needs 10.7 or above with libc++ enabled
+cmake \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DLLVM_ENABLE_RTTI=ON \
+  -DLLVM_ENABLE_TERMINFO=OFF \
+  -DLLVM_ENABLE_ASSERTIONS=ON \
+  -DLLVM_INCLUDE_DOCS=OFF \
+  -DLLVM_INCLUDE_TESTS=OFF \
+  -DLLVM_INCLUDE_UTILS=OFF \
+  -DLLVM_INCLUDE_EXAMPLES=OFF \
+  -DLLVM_TARGETS_TO_BUILD="X86" \
+  -DHAVE_LIBEDIT=0 \
+  -DBUILD_SHARED_LIBS=ON \
+  -DCMAKE_INSTALL_PREFIX=$PREFIX \
+  ..
 
-    export MACOSX_DEPLOYMENT_TARGET=10.7
-    ../configure \
-        --enable-pic \
-        --enable-optimized \
-        --disable-docs \
-        --enable-targets=host \
-        --disable-terminfo \
-        --disable-libedit \
-        --prefix=$PREFIX \
-        --with-python=$SYS_PYTHON \
-        --enable-libcpp=yes
-
-fi
-
-make -j4 REQUIRES_RTTI=1
-make install
+cmake --build . -- -j 8
+cmake --build . --target install
