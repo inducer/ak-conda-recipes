@@ -1,0 +1,67 @@
+package:
+  name: islpy
+  version: "2015.2"
+
+source:
+  fn: islpy-2015.2.tar.gz
+  url: https://pypi.python.org/packages/source/i/islpy/islpy-2015.2.tar.gz
+  md5: 5e86b724b38aa5e8dfa64b1396f1a864
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - islpy = islpy:main
+    #
+    # Would create an entry point called islpy that calls islpy.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytest >=2
+    - cffi >=1.1.0
+    - six
+
+  run:
+    - python
+    - pytest >=2
+    - cffi >=1.1.0
+    - six
+
+test:
+  # Python imports
+  imports:
+    - islpy
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: http://documen.tician.de/islpy
+  license: MIT License
+  summary: 'Wrapper around isl, an integer set library'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

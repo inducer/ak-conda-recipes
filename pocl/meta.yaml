@@ -1,0 +1,27 @@
+package:
+  name: pocl
+  version: 0.12
+
+source:
+  fn: pocl-0.12.tar.gz
+  url: http://portablecl.org/downloads/pocl-0.12.tar.gz
+  sha1: 700926899c285511313007e198a89aed7dab6386
+
+
+requirements:
+  build:
+    - pkgconfig
+    - akllvmdev >=3.7,<3.8
+    - akclangdev >=3.7,<3.8
+    - libhwloc
+  run:
+    - akclangdev >=3.7,<3.8
+    - libhwloc
+
+about:
+  home: https://www.open-mpi.org/projects/hwloc/
+  license: MIT
+
+# test:
+#   files:
+#     - test.c
